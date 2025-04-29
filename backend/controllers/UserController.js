@@ -15,14 +15,14 @@ const register = async (request, response) => {
         "INSERT INTO users (email, firstname, lastname, password, is_verified) VALUES (?, ?, ?, ?, ?)",
         [email, firstname, lastname, hashedPassword, isVerified]
       );
-      const token = generateVerificationToken(user);
-      console.log(token);
-      const sendEmail = await sendVerificationEmail(user, token);
-      console.log("Send email", sendEmail);
-      if (!sendEmail) {
-        return response.status(500).json({ message: "Failed to send verification email" });
-        }
-        res.status(200).json({ message: "Verification email sent!" });
+    //   const token = generateVerificationToken(user);
+    //   console.log(token);
+    //   const sendEmail = await sendVerificationEmail(user, token);
+    //   console.log("Send email", sendEmail);
+    //   if (!sendEmail) {
+    //     return response.status(500).json({ message: "Failed to send verification email" });
+    //     }
+    //     res.status(200).json({ message: "Verification email sent!" });
       return response.status(201).json({ message: "User registered", token });
        
     } else {
